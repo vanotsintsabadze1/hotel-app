@@ -2,9 +2,9 @@ import RoomContainers from "./RoomContainers";
 
 function RoomOverview() {
   return (
-    <section className="w-full h-[100rem] flex flex-col">
-      <div className="w-full h-[7rem] flex justify-center items-center">
-        <h1 className="text-secondary font-bold text-[1rem] text-center">
+    <section className="flex h-[100rem] w-full flex-col">
+      <div className="flex h-[7rem] w-full items-center justify-center">
+        <h1 className="text-center text-[1rem] font-bold text-secondary">
           All our room types are including complementary breakfast
         </h1>
       </div>

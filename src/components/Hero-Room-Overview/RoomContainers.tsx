@@ -21,19 +21,30 @@ const rooms: RoomOverviewType[] = [
 
 function RoomContainers() {
   return (
-    <div className="w-full h-[90rem] flex flex-col items-center p-[0_2rem] gap-[2rem] pt-[1rem]">
+    <div className="flex h-[90rem] w-full flex-col items-center gap-[2rem] p-[0_2rem] pt-[1rem]">
       {rooms.map((room, index) => {
         return (
-          <div key={index} className="w-[30rem] h-[40rem] flex flex-col border-t-secondary border-t-[0.2rem] pt-[3rem]">
-            <div className="w-full h-[18rem] border-none outline-none">
-              <img src={room.imgUrl} alt={`room-overview-${index}`} className="w-full h-full object-fill rounded-2xl" />
+          <div
+            key={index}
+            className="flex h-[40rem] w-[30rem] flex-col border-t-[0.2rem] border-t-secondary pt-[3rem]"
+          >
+            <div className="h-[18rem] w-full border-none outline-none">
+              <img
+                src={room.imgUrl}
+                alt={`room-overview-${index}`}
+                className="h-full w-full rounded-2xl object-fill"
+              />
             </div>
-            <div className="w-full h-[13rem] flex flex-col justify-center items-center text-secondary gap-[1rem] text-center">
-              <h1 className="font-bold font-secondary text-[1.8rem]">{room.header}</h1>
-              <p className="w-[25rem] font-[600] text-[1.1rem]">{room.description}</p>
+            <div className="flex h-[13rem] w-full flex-col items-center justify-center gap-[1rem] text-center text-secondary">
+              <h1 className="font-secondary text-[1.8rem] font-bold">
+                {room.header}
+              </h1>
+              <p className="w-[25rem] text-[1.1rem] font-[600]">
+                {room.description}
+              </p>
             </div>
-            <div className="w-full h-[5rem] flex justify-center items-center">
-              <button className="w-[12rem] h-[4rem] bg-primary rounded-lg text-white font-semibold text-[1.25rem] tracking-wider uppercase">
+            <div className="flex h-[5rem] w-full items-center justify-center">
+              <button className="h-[4rem] w-[12rem] rounded-lg bg-primary text-[1.25rem] font-semibold uppercase tracking-wider text-white">
                 Explore
               </button>
             </div>
