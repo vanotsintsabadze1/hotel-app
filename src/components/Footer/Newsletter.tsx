@@ -1,11 +1,9 @@
 function Newsletter() {
   return (
     <div>
-      <div className="flex h-[10rem] w-[30rem] flex-col items-center justify-center">
+      <div className="flex h-[10rem] w-[30rem] flex-col items-center justify-center lg:h-[5re]">
         <div className="flex h-[5rem] w-full items-center pl-[2rem]">
-          <h4 className="text-[1.2rem] font-semibold text-white">
-            Subscribe to our newsletter
-          </h4>
+          <h4 className="text-[1.2rem] font-semibold text-white">Subscribe to our newsletter</h4>
         </div>
         <div className="flex h-[5rem] w-full items-center justify-center">
           <input
