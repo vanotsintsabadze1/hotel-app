@@ -16,7 +16,7 @@ function Navigation() {
         Facilities
       </Link>
       <Link
-        to="/"
+        to="/rooms"
         className="ease drop-shadow-navigation-text duration-200 hover:font-semibold hover:underline"
       >
         Rooms

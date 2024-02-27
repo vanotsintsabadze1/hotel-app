@@ -8,7 +8,7 @@ const rooms: RoomOverviewType[] = [
   {
     header: "Luxury redefined",
     description:
-      "Our rooms are designed to transport you into an environment made for leisure.Take your mind off the day-to-day of home life and find a private paradise for yourself.",
+      "Our rooms are designed to transport you into an environment made for leisure. Take your mind off the day-to-day of home life and find a private paradise for yourself.",
     imgUrl: "/room-images/room-overview-images/room-overview-1.webp",
   },
   {
@@ -21,24 +21,24 @@ const rooms: RoomOverviewType[] = [
 
 function RoomContainers() {
   return (
-    <div className="flex h-[90rem] w-full flex-col items-center p-[0_2rem] pt-[1rem] lg:justify-evenly lg:gap-[4rem] lg:p-0">
+    <div className="lg: flex h-[90rem] w-full flex-col items-center p-[0_2rem] pt-[1rem] lg:h-[70rem] lg:flex-row lg:justify-evenly lg:p-0">
       {rooms.map((room, index) => {
         return (
           <div
             key={index}
-            className="flex h-[40rem] w-[30rem] flex-col border-t-[0.2rem] border-t-secondary pt-[3rem] lg:h-[30rem] 
-            lg:w-[90rem] lg:flex-row-reverse lg:justify-center lg:gap-[2rem] lg:border-l-[0.2rem] 
-            lg:border-l-secondary lg:border-t-transparent lg:p-[2rem] lg:pr-[3rem]"
+            className="flex h-[40rem] w-[30rem] flex-col justify-center border-t-[0.2rem] border-t-secondary  
+            pt-[3rem] lg:h-[70rem] lg:w-[55rem] lg:items-center lg:border-none"
           >
-            <div className="h-[18rem] w-full border-none outline-none lg:h-[25rem] lg:w-[35rem]">
+            <div className="lg h-[18rem] w-full border-none outline-none lg:flex lg:h-[35rem] lg:w-full lg:items-center lg:justify-center">
               <img
                 src={room.imgUrl}
                 alt={`room-overview-${index}`}
-                className="h-full w-full rounded-2xl object-fill"
+                className="h-full w-full rounded-[0.2rem] border-[0.2rem] border-[rgba(0,_0,_0,_0.2)] object-fill shadow-2xl lg:h-[30rem] lg:w-[45rem] xl:h-[35rem] xl:w-[50rem]"
+                loading="lazy"
               />
             </div>
-            <div className=" lg:flex lg:h-[full] lg:w-1/2 lg:flex-col lg:justify-center lg:gap-[2rem]">
-              <div className="flex h-[13rem] w-full flex-col items-center justify-center gap-[1rem] text-center text-secondary">
+            <div className=" lg:flex lg:h-[full] lg:flex-col lg:justify-center ">
+              <div className="flex h-[20rem] w-full flex-col items-center justify-center gap-[1rem] text-center text-secondary">
                 <h1 className="font-secondary text-[1.8rem] font-bold lg:text-[2.5rem]">
                   {room.header}
                 </h1>

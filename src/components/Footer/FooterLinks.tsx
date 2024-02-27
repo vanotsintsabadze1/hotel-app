@@ -14,16 +14,19 @@ function FooterLinks() {
             src="/social-icons/facebook-logo.webp"
             alt="footer-social-icon"
             className="h-[1.8rem] w-[1rem]"
+            loading="lazy"
           />
           <img
             src="/social-icons/twitter-logo.webp"
             alt="footer-social-icon"
             className="h-[1.5rem] w-[1.8rem]"
+            loading="lazy"
           />
           <img
             src="/social-icons/instagram-logo.webp"
             alt="footer-social-icon"
             className="h-[1.8rem] w-[1.8rem]"
+            loading="lazy"
           />
         </div>
         <div className=" flex h-full flex-col items-start justify-between pl-[0.5rem] text-[1.1rem]">
