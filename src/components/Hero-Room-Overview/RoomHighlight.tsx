@@ -21,24 +21,24 @@ const rooms: RoomOverviewType[] = [
 
 function RoomContainers() {
   return (
-    <div className="lg: flex h-[90rem] w-full flex-col items-center p-[0_2rem] pt-[1rem] lg:h-[70rem] lg:flex-row lg:justify-evenly lg:p-0">
+    <div className="mb-[10rem] flex w-full flex-col items-center justify-evenly gap-[3rem] p-[0_2rem] lg:mb-0 lg:h-[70rem] lg:flex-row lg:justify-evenly lg:p-0">
       {rooms.map((room, index) => {
         return (
           <div
             key={index}
-            className="flex h-[40rem] w-[30rem] flex-col justify-center border-t-[0.2rem] border-t-secondary  
-            pt-[3rem] lg:h-[70rem] lg:w-[55rem] lg:items-center lg:border-none"
+            className="flex h-[40rem] w-[30rem] flex-col justify-center   
+            gap-[1rem] lg:h-[70rem] lg:w-[55rem] lg:items-center"
           >
             <div className="lg h-[18rem] w-full border-none outline-none lg:flex lg:h-[35rem] lg:w-full lg:items-center lg:justify-center">
               <img
                 src={room.imgUrl}
                 alt={`room-overview-${index}`}
-                className="h-full w-full rounded-[0.2rem] border-[0.2rem] border-[rgba(0,_0,_0,_0.2)] object-fill shadow-2xl lg:h-[30rem] lg:w-[45rem] xl:h-[35rem] xl:w-[50rem]"
+                className="h-full w-full rounded-[1rem] border-[0.2rem] border-[rgba(0,_0,_0,_0.2)] object-fill shadow-2xl lg:h-[30rem] lg:w-[45rem] lg:rounded-[0.5rem] xl:h-[35rem] xl:w-[50rem]"
                 loading="lazy"
               />
             </div>
-            <div className=" lg:flex lg:h-[full] lg:flex-col lg:justify-center ">
-              <div className="flex h-[20rem] w-full flex-col items-center justify-center gap-[1rem] text-center text-secondary">
+            <div className="flex flex-col gap-[2rem] lg:flex lg:h-[full] lg:flex-col lg:justify-center">
+              <div className="flex w-full flex-col items-center justify-center gap-[1rem] text-center text-secondary">
                 <h1 className="font-secondary text-[1.8rem] font-bold lg:text-[2.5rem]">
                   {room.header}
                 </h1>

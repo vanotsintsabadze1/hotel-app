@@ -12,10 +12,20 @@
 body {
   height: 100dvh;
 }
+
+html {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;
+}
+
 html,
 body {
   min-height: 100dvh;
   font-size: 10px;
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
 
 #root {

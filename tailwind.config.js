@@ -4,6 +4,9 @@ export default {
   theme: {
     extend: {
       fontFamily: {
+        primary: "Montserrat",
+        "primary-semibold": "MontserratSemibold",
+        "primary-bold": "MontserratBold",
         secondary: "IBM Plex Serif",
       },
       colors: {
@@ -12,6 +15,7 @@ export default {
       },
       backgroundImage: {
         "hero-image": "url('/background-images/hero.webp')",
+        "room-image": "url('/background-images/room-page-bg.webp')",
       },
       dropShadow: {
         "hero-text": "0 0 1rem rgba(0, 0, 0, 0.7)",
@@ -19,6 +23,7 @@ export default {
       },
       boxShadow: {
         "button-shadow": "0 0rem 1.5rem 0.5rem rgba(169,169,169,0.4)",
+        "room-card": "0 0 1.2rem 0.5rem rgba(0, 0, 0, 0.3)",
       },
     },
     screens: {
@@ -26,10 +31,6 @@ export default {
       md: { min: "640px" },
       lg: { min: "1024px" },
       xl: { min: "1280px" },
-
-      // "max-lg": { max: "1279px" },
-      // "max-md": { max: "1023px" },
-      // "max-sm": { max: "767px" },
     },
   },
   plugins: [],
