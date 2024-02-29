@@ -1,8 +1,12 @@
 import { motion } from "framer-motion";
 import SideBarNavigation from "./SideBarNavigation";
 import { IoMdExit } from "react-icons/io";
+import { userIsLoggedIn } from "../../App";
+import { useContext } from "react";
 
 function SideBar({ toggleBar }: { toggleBar: () => void }) {
+  const userLoggedInContext = useContext(userIsLoggedIn);
+
   const sideBarAnimationVariants = {
     hidden: { x: 200 },
     visible: { x: 0 },

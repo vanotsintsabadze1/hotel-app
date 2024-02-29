@@ -1,3 +1,8 @@
+type userAuthorizedType = {
+  isUserLoggedIn: boolean;
+  setUserIsLoggedIn: (status: boolean) => void;
+};
+
 type RoomType = {
   capacity: number;
   description: string;
@@ -14,4 +19,4 @@ type RoomOverviewType = {
   imgUrl: string;
 };
 
-export type { RoomType, RoomOverviewType };
+export type { RoomType, RoomOverviewType, userAuthorizedType };
