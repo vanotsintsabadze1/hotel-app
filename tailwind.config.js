@@ -23,7 +23,7 @@ export default {
       },
       boxShadow: {
         "button-shadow": "0 0rem 1.5rem 0.5rem rgba(169,169,169,0.4)",
-        "room-card": "0 0 1.2rem 0.5rem rgba(0, 0, 0, 0.3)",
+        "room-card": "0 0.3rem 1.2rem 0.3rem rgba(169, 169, 169, 0.8)",
       },
     },
     screens: {

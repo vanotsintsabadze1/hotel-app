@@ -1,7 +1,7 @@
 import Introduction from "../components/Hero-Introduction/Introduction";
 import RoomOverview from "../components/Hero-Room-Overview/RoomOverview";
 
-function App() {
+function Home() {
   return (
     <>
       <Introduction />
@@ -10,4 +10,4 @@ function App() {
   );
 }
 
-export default App;
+export default Home;

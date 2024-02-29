@@ -1,8 +1,4 @@
-type RoomOverviewType = {
-  header: string;
-  description: string;
-  imgUrl: string;
-};
+import { RoomOverviewType } from "../../types";
 
 const rooms: RoomOverviewType[] = [
   {

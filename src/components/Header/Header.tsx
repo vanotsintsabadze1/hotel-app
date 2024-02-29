@@ -1,25 +1,39 @@
 import { CgMenuMotion } from "react-icons/cg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import HeaderBanner from "./HeaderBanner";
 import SideBar from "./SideBar";
 import Navigation from "./Navigation";
+import { AnimatePresence } from "framer-motion";
+import { useLocation } from "react-router-dom";
 
-function Header() {
+function Header({ headerBackgroundColor }: { headerBackgroundColor: string }) {
+  const location = useLocation();
+
   const [sideBarVisibility, setSideBarVisibility] = useState(false);
 
   const handleSideBarVisibility = () => {
-    setSideBarVisibility(!sideBarVisibility);
+    setSideBarVisibility((prev) => !prev);
   };
 
+  useEffect(() => {
+    sideBarVisibility ? setSideBarVisibility(false) : null;
+  }, [location.pathname]);
+
   return (
-    <header className="absolute top-0 z-[4] flex h-[8rem] w-full justify-center p-[0_1rem]">
-      <div className="flex w-full justify-between md:w-[62rem] lg:w-[80rem] xl:w-[120rem]">
+    <header
+      className={`bg-${headerBackgroundColor} absolute top-0 z-[4] flex h-[8rem] w-full justify-center p-[0_1rem] sm:h-[9rem] md:p-[0_3rem]`}
+    >
+      <div className="flex w-full justify-between md:w-full lg:w-[80rem] xl:w-[120rem]">
         <HeaderBanner />
-        <CgMenuMotion
-          className="absolute right-[2rem] top-[1.5rem] hidden h-[3.5rem] w-[3.5rem] text-white sm:block"
+        <button
+          className="absolute right-[2rem] top-[1.5rem] hidden sm:block"
           onClick={handleSideBarVisibility}
-        />
-        {sideBarVisibility && <SideBar />}
+        >
+          <CgMenuMotion className=" h-[3.5rem] w-[3.5rem] text-white" />
+        </button>
+        <AnimatePresence>
+          {sideBarVisibility && <SideBar toggleBar={handleSideBarVisibility} />}
+        </AnimatePresence>
         <Navigation />
       </div>
     </header>
