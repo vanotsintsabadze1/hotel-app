@@ -3,13 +3,14 @@ import { FaMoneyBillWave } from "react-icons/fa";
 import { useState, useEffect } from "react";
 import { getRooms } from "../../scripts/fetching/getRooms.ts";
 import { RoomType } from "../../types";
+import LoadingScreen from "../loading-screen/LoadingScreen.tsx";
 
 function RoomsContainer() {
   const [rooms, setRooms] = useState<RoomType[]>([]);
 
   const fetchRooms = async () => {
     const hotelRooms = await getRooms();
-    setRooms(hotelRooms);
+    setRooms((hotelRooms as RoomType[]) || []);
   };
 
   useEffect(() => {
@@ -56,7 +57,7 @@ function RoomsContainer() {
             );
           })
         ) : (
-          <p>Loading...</p>
+          <LoadingScreen />
         )}
       </div>
     </section>

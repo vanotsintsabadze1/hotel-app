@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { redirectToGoogleAuth } from "../../scripts/login/redirectToGoogleAuth";
+import { redirectToGoogleAuth } from "../../scripts/authorization/redirectToGoogleAuth";
 
 function LoginCard() {
   const loginCardAnimation = {

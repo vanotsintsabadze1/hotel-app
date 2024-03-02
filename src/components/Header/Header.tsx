@@ -1,7 +1,8 @@
+import { lazy } from "react";
 import { CgMenuMotion } from "react-icons/cg";
 import { useEffect, useState } from "react";
 import HeaderBanner from "./HeaderBanner";
-import SideBar from "./SideBar";
+const SideBar = lazy(() => import("./SideBar"));
 import Navigation from "./Navigation";
 import { AnimatePresence } from "framer-motion";
 import { useLocation } from "react-router-dom";
