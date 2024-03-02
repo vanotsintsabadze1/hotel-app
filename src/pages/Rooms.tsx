@@ -1,9 +1,10 @@
+import { lazy } from "react";
 import RoomsPageIntroduction from "../components/Rooms/RoomsPageIntroduction";
-import RoomsContainer from "../components/Rooms/RoomsContainer";
+const RoomsContainer = lazy(() => import("../components/Rooms/RoomsContainer"));
 
 function Rooms() {
   return (
-    <section className=" w-full">
+    <section className="w-full">
       <RoomsPageIntroduction />
       <RoomsContainer />
     </section>

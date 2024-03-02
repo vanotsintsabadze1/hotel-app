@@ -6,7 +6,7 @@ const backgroundColors = {
   secondary: "secondary",
 };
 
-const headerBackgroundController = (path: string) => {
+const headerBackgroundController = (path: string): string => {
   const { primary, secondary } = backgroundColors;
 
   switch (path) {
