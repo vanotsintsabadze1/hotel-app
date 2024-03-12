@@ -14,11 +14,15 @@ type userActivityCheckType = {
   status: number;
 };
 
+type ImageBase64Type = {
+  imageBase64: string;
+};
+
 type RoomType = {
   capacity: number;
   description: string;
   id: string;
-  images: string[];
+  images: ImageBase64Type[];
   pricePerNight: number;
   pricePerNightCurrency: number;
   type: number;
@@ -30,4 +34,17 @@ type RoomOverviewType = {
   imgUrl: string;
 };
 
-export type { RoomType, RoomOverviewType, userAuthorizedType, userActivityCheckType };
+type ReservationDates = {
+  checkInDate: string;
+  checkOutDate: string;
+};
+
+type DateContextType = {
+  reservationDates: ReservationDates;
+  setReservationDate: {
+    setCheckInDate: (_data: string) => void;
+    setCheckOutDate: (_data: string) => void;
+  };
+};
+
+export type { RoomType, RoomOverviewType, userAuthorizedType, userActivityCheckType, DateContextType, ReservationDates };

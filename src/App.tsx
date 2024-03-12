@@ -1,24 +1,19 @@
-import { lazy, Suspense } from "react";
 import Header from "./components/Header/Header.tsx";
 import Footer from "./components/Footer/Footer.tsx";
+import LoadingScreen from "./components/loading-screen/LoadingScreen.tsx";
+import { lazy, Suspense } from "react";
 import { Routes, Route, useLocation, Outlet } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { headerBackgroundController } from "./scripts/style-controllers/headerBackgroundController.ts";
-import { createContext } from "react";
-import { userAuthorizedType } from "./types.ts";
+import { userLoggedInStatusContext } from "./contexts/userLoggedInContext.ts";
 import { checkUserStatus } from "./scripts/authorization/checkUserStatus.ts";
-import LoadingScreen from "./components/loading-screen/LoadingScreen.tsx";
-
 const Home = lazy(() => import("./pages/Home.tsx"));
 const Rooms = lazy(() => import("./pages/Rooms.tsx"));
 const UserLogin = lazy(() => import("./pages/UserLogin.tsx"));
 const NoPageFound = lazy(() => import("./pages/NoPageFound.tsx"));
 const GoogleResponse = lazy(() => import("./pages/GoogleResponse.tsx"));
-
-export const userIsLoggedIn = createContext<userAuthorizedType>({
-  isUserLoggedIn: false,
-  setUserIsLoggedIn: (_status: boolean) => {},
-});
+const IndividualRoomDetails = lazy(() => import("./pages/IndividualRoomDetails.tsx"));
+const RoomsPageIntroduction = lazy(() => import("./components/Rooms/RoomsPageIntroduction.tsx"));
 
 function App() {
   const [headerBackground, setHeaderBackground] = useState("transparent");
@@ -43,7 +38,7 @@ function App() {
 
   return (
     <>
-      <userIsLoggedIn.Provider value={{ isUserLoggedIn, setUserIsLoggedIn }}>
+      <userLoggedInStatusContext.Provider value={{ isUserLoggedIn, setUserIsLoggedIn }}>
         <Suspense fallback={<LoadingScreen />}>
           <Routes>
             <Route
@@ -57,14 +52,17 @@ function App() {
               }
             >
               <Route index element={<Home />} />
-              <Route path="rooms" element={<Rooms />} />
+              <Route path="rooms" element={<Rooms />}>
+                <Route index element={<RoomsPageIntroduction />} />
+                <Route path=":roomType" element={<IndividualRoomDetails />} />
+              </Route>
               <Route path="login" element={<UserLogin />} />
             </Route>
             <Route path="/GoogleResponse" element={<GoogleResponse />} />
             <Route path="*" element={<NoPageFound />} />
           </Routes>
         </Suspense>
-      </userIsLoggedIn.Provider>
+      </userLoggedInStatusContext.Provider>
     </>
   );
 }

@@ -1,27 +1,25 @@
-import { lazy } from "react";
 import { Link } from "react-router-dom";
 import { LuUserCircle } from "react-icons/lu";
 import { useContext, useState } from "react";
 import { AnimatePresence } from "framer-motion";
-import { userIsLoggedIn } from "../../App";
+import { userLoggedInStatusContext } from "../../contexts/userLoggedInContext";
 import { signUserOut } from "../../scripts/authorization/signUserOut";
-
-const LoginCard = lazy(() => import("./LoginCard"));
+import LoginCard from "./LoginCard";
 
 function Navigation() {
   const [loginCardVisibility, setLoginCardVisibility] = useState<Boolean>(false);
-  const userLoggedInContext = useContext(userIsLoggedIn);
-  const { isUserLoggedIn } = userLoggedInContext;
+  const userLoggedInContext = useContext(userLoggedInStatusContext);
+  const { isUserLoggedIn, setUserIsLoggedIn } = userLoggedInContext;
 
   const enableLoginCard = () => setLoginCardVisibility((prev) => !prev);
 
   const onClickSignUserOut = async () => {
     await signUserOut();
-    userLoggedInContext.setUserIsLoggedIn(false);
+    setUserIsLoggedIn(false);
   };
 
   return (
-    <div className="ease relative hidden h-full w-[45rem] items-center justify-evenly gap-[2rem] text-[1.5rem] font-normal text-white group-hover:font-semibold md:flex">
+    <div className="ease lg-minus:flex relative hidden h-full w-[45rem] items-center justify-evenly gap-[2rem] text-[1.5rem] font-normal text-white">
       <Link
         to="/"
         className="ease drop-shadow-navigation-text duration-200 hover:font-semibold hover:underline"
