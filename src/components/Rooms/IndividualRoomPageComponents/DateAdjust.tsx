@@ -1,11 +1,11 @@
 import { useState, useContext, useEffect } from "react";
-import { dateContext } from "../../../contexts/dateContext";
+import { DateContext } from "../../../contexts/dateContext";
 import CheckInDatePicker from "../../DatePicking/CheckInDatePicker";
 import CheckOutDatePicker from "../../DatePicking/CheckOutDatePicker";
-import { getISODay, getMonth, format } from "date-fns";
+import { getDate, format } from "date-fns";
 
 function DateAdjust() {
-  const dateValueContext = useContext(dateContext);
+  const dateValueContext = useContext(DateContext);
   const {
     reservationDates: { checkInDate, checkOutDate },
   } = dateValueContext;
@@ -16,13 +16,13 @@ function DateAdjust() {
 
   useEffect(() => {
     if (checkInDate !== "") {
-      setCheckInValue(`${getISODay(checkInDate)} ${format(checkInDate, "LLLL")}`);
+      setCheckInValue(`${getDate(checkInDate)} ${format(checkInDate, "LLLL")}`);
     }
   }, [checkInDate]);
 
   useEffect(() => {
     if (checkOutDate !== "") {
-      setCheckOutValue(`${getISODay(checkOutDate)} ${format(checkOutDate, "LLLL")}`);
+      setCheckOutValue(`${getDate(checkOutDate)} ${format(checkOutDate, "LLLL")}`);
     }
   }, [checkOutDate]);
 

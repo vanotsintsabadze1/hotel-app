@@ -1,12 +1,15 @@
 import { RoomType } from "../../types";
 import { useState, useEffect } from "react";
-import { dateContext } from "../../contexts/dateContext";
+import { DateContext } from "../../contexts/dateContext";
+import { isBefore } from "date-fns";
+import { DateTime } from "luxon";
+import ErrorModal from "../DatePicking/ErrorModal";
 import IndRoomDescription from "./IndividualRoomPageComponents/IndRoomDescription";
 import RoomSlider from "./IndividualRoomPageComponents/RoomSlider";
 import DateAdjust from "./IndividualRoomPageComponents/DateAdjust";
 import GuestAmount from "./IndividualRoomPageComponents/GuestAmount";
 import PaymentOptions from "./IndividualRoomPageComponents/PaymentOptions";
-import { isBefore } from "date-fns";
+import { setReservation } from "../../scripts/reservation/setReservation";
 
 function IndividualRoomCard({ selectedRoomDetails }: { selectedRoomDetails: RoomType }) {
   const { description, pricePerNight, capacity, type } = selectedRoomDetails;
@@ -14,6 +17,8 @@ function IndividualRoomCard({ selectedRoomDetails }: { selectedRoomDetails: Room
   const [guestAmount, setGuestAmount] = useState<number>(0);
   const [checkInDate, setCheckInDate] = useState<string>("");
   const [checkOutDate, setCheckOutDate] = useState<string>("");
+  const [shouldErrorBeVisible, setShouldErrorBeVisible] = useState<boolean>(false);
+  const [errorMessage, setErrorMessage] = useState<string>("");
 
   useEffect(() => {
     console.log(checkInDate);
@@ -21,29 +26,55 @@ function IndividualRoomCard({ selectedRoomDetails }: { selectedRoomDetails: Room
 
   const onBookButtonClick = () => {
     if (checkInDate === "" || checkOutDate === "") {
-      alert("Dates are not set!");
-      return;
-    }
+      setErrorMessage("Check-in or check-out date is not set!");
+      setShouldErrorBeVisible(true);
 
-    if (guestAmount === 0) {
-      alert("Guest amount is not set!");
+      setTimeout(() => {
+        setShouldErrorBeVisible(false);
+      }, 2500);
       return;
     }
 
     if (isBefore(checkOutDate, checkInDate)) {
-      alert("Check-out date is before check-in date!");
+      setErrorMessage("Check-out date cannot be before check-in date!");
+      setShouldErrorBeVisible(true);
+
+      setTimeout(() => {
+        setShouldErrorBeVisible(false);
+      }, 2500);
       return;
     }
+
+    if (guestAmount === 0) {
+      setErrorMessage("Guest amount is not set!");
+      setShouldErrorBeVisible(true);
+
+      setTimeout(() => {
+        setShouldErrorBeVisible(false);
+      }, 2500);
+      return;
+    }
+
+    const reservationData = {
+      roomId: "id1",
+      checkInDateUtc: DateTime.fromISO(checkInDate, { zone: "local" }).toUTC().toISO(),
+      checkOutDateUtc: DateTime.fromISO(checkOutDate, { zone: "local" }).toUTC().toISO(),
+      numberOfGuests: guestAmount,
+    };
+
+    console.log(reservationData);
+
+    setReservation(reservationData);
   };
 
   return (
-    <dateContext.Provider
+    <DateContext.Provider
       value={{
         reservationDates: { checkInDate: checkInDate, checkOutDate: checkOutDate },
         setReservationDate: { setCheckInDate: setCheckInDate, setCheckOutDate: setCheckOutDate },
       }}
     >
-      <div className="mb-[5rem] mt-[12rem] min-h-[50rem] w-full rounded-[2rem] p-[2rem_2rem] shadow-individual-room-card lg:w-[50rem]">
+      <div className="relative mb-[5rem] mt-[12rem] flex min-h-[50rem] w-full flex-col rounded-[2rem] p-[2rem_2rem] shadow-individual-room-card lg:w-auto">
         <div className="flex w-full items-center justify-center">
           <h1 className="font-primary-bold text-[1.7rem] uppercase tracking-wider">Room Overview</h1>
         </div>
@@ -60,8 +91,9 @@ function IndividualRoomCard({ selectedRoomDetails }: { selectedRoomDetails: Room
             Book
           </button>
         </div>
+        {shouldErrorBeVisible && <ErrorModal errorMessage={errorMessage} />}
       </div>
-    </dateContext.Provider>
+    </DateContext.Provider>
   );
 }
 

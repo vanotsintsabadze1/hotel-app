@@ -2,16 +2,16 @@ import DatePickerContainer from "./DatePickerContainer";
 import DatePicker from "react-datepicker";
 import "./DatePickerStyles.css";
 import { useState, useContext, useEffect } from "react";
-import { dateContext } from "../../contexts/dateContext";
+import { DateContext } from "../../contexts/dateContext";
 import { formatISO } from "date-fns";
 import "react-datepicker/dist/react-datepicker.css";
 
 function CheckInDatePicker({ setVisibility }: { setVisibility: React.Dispatch<React.SetStateAction<boolean>> }) {
-  const dateValueContext = useContext(dateContext);
+  const dateValueContext = useContext(DateContext);
   const [checkInDate, setCheckInDate] = useState<Date | null>(new Date());
   const [formattedCheckInDate, setFormattedCheckInDate] = useState<string>("");
   const {
-    setReservationDate: { setCheckInDate: checkInDateSetter, setCheckOutDate },
+    setReservationDate: { setCheckInDate: checkInDateSetter },
   } = dateValueContext;
 
   useEffect(() => {
@@ -28,6 +28,7 @@ function CheckInDatePicker({ setVisibility }: { setVisibility: React.Dispatch<Re
   const onCheckInSubmitButtonClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
     checkInDateSetter(formattedCheckInDate);
+    console.log(formattedCheckInDate);
     setVisibility(false);
     console.log("clicked");
   };

@@ -1,13 +1,13 @@
 import DatePickerContainer from "./DatePickerContainer";
-import DatePicker, { ReactDatePickerProps } from "react-datepicker";
+import DatePicker from "react-datepicker";
 import "./DatePickerStyles.css";
 import { useState, useContext, useEffect } from "react";
-import { dateContext } from "../../contexts/dateContext";
+import { DateContext } from "../../contexts/dateContext";
 import { formatISO } from "date-fns";
 import "react-datepicker/dist/react-datepicker.css";
 
 function CheckOutDatePicker({ setVisibility }: { setVisibility: React.Dispatch<React.SetStateAction<boolean>> }) {
-  const dateValueContext = useContext(dateContext);
+  const dateValueContext = useContext(DateContext);
   const [checkOutDate, setCheckOutDate] = useState<Date | null>(new Date());
   const [formattedCheckOutDate, setFormattedCheckOutDate] = useState<string>("");
   const {

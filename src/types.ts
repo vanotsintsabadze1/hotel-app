@@ -47,4 +47,11 @@ type DateContextType = {
   };
 };
 
-export type { RoomType, RoomOverviewType, userAuthorizedType, userActivityCheckType, DateContextType, ReservationDates };
+type ReservationData = {
+  roomId: string;
+  checkInDateUtc: string | null;
+  checkOutDateUtc: string | null;
+  numberOfGuests: number;
+};
+
+export type { RoomType, RoomOverviewType, userAuthorizedType, userActivityCheckType, DateContextType, ReservationDates, ReservationData };

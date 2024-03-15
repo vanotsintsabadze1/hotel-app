@@ -1,7 +1,7 @@
 import { createContext } from "react";
 import { ReservationDates, DateContextType } from "../types";
 
-const dateContext = createContext<DateContextType>({
+const DateContext = createContext<DateContextType>({
   reservationDates: {} as ReservationDates,
   setReservationDate: {
     setCheckInDate: (_data: string) => {},
@@ -9,4 +9,4 @@ const dateContext = createContext<DateContextType>({
   },
 });
 
-export { dateContext };
+export { DateContext };

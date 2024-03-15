@@ -5,7 +5,7 @@ import { lazy, Suspense } from "react";
 import { Routes, Route, useLocation, Outlet } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { headerBackgroundController } from "./scripts/style-controllers/headerBackgroundController.ts";
-import { userLoggedInStatusContext } from "./contexts/userLoggedInContext.ts";
+import { UserLoggedInStatusContext } from "./contexts/userLoggedInContext.ts";
 import { checkUserStatus } from "./scripts/authorization/checkUserStatus.ts";
 const Home = lazy(() => import("./pages/Home.tsx"));
 const Rooms = lazy(() => import("./pages/Rooms.tsx"));
@@ -38,7 +38,7 @@ function App() {
 
   return (
     <>
-      <userLoggedInStatusContext.Provider value={{ isUserLoggedIn, setUserIsLoggedIn }}>
+      <UserLoggedInStatusContext.Provider value={{ isUserLoggedIn, setUserIsLoggedIn }}>
         <Suspense fallback={<LoadingScreen />}>
           <Routes>
             <Route
@@ -62,7 +62,7 @@ function App() {
             <Route path="*" element={<NoPageFound />} />
           </Routes>
         </Suspense>
-      </userLoggedInStatusContext.Provider>
+      </UserLoggedInStatusContext.Provider>
     </>
   );
 }
