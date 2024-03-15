@@ -24,6 +24,7 @@ export default {
       boxShadow: {
         "button-shadow": "0 0rem 1.5rem 0.5rem rgba(169,169,169,0.4)",
         "room-card": "0 0.3rem 1.2rem 0.3rem rgba(169, 169, 169, 0.8)",
+        "individual-room-card": "0 0rem 1.2rem 0.3rem rgba(169, 169, 169, 0.8)",
       },
     },
     screens: {
@@ -31,6 +32,8 @@ export default {
       md: { min: "640px" },
       lg: { min: "1024px" },
       xl: { min: "1280px" },
+      "md-lg": { min: "640px", max: "799px" },
+      "lg-minus": { min: "800px" },
     },
   },
   plugins: [],

@@ -1,12 +1,9 @@
-import { lazy } from "react";
-import RoomsPageIntroduction from "../components/Rooms/RoomsPageIntroduction";
-const RoomsContainer = lazy(() => import("../components/Rooms/RoomsContainer"));
+import { Outlet } from "react-router-dom";
 
 function Rooms() {
   return (
-    <section className="w-full">
-      <RoomsPageIntroduction />
-      <RoomsContainer />
+    <section className="relative flex w-full flex-[1] flex-col items-center justify-center">
+      <Outlet />
     </section>
   );
 }

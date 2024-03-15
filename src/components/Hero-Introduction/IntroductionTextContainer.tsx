@@ -18,7 +18,7 @@ function IntroductionTextContainer() {
         </p>
       </div>
       <div className="mt-[1rem]] flex h-[5rem] w-full items-center justify-center">
-        <button className="flex h-full w-[20rem] items-center justify-center gap-[0.3rem] rounded-[1rem] bg-primary shadow-button-shadow">
+        <button className="flex h-full w-[20rem] items-center justify-center gap-[0.3rem] rounded-[1rem] bg-primary shadow-button-shadow duration-200 ease-out hover:scale-110">
           <MdApartment className="h-[2rem] w-[2rem] text-white" />
           <p className="text-[1.4rem] font-bold uppercase tracking-wider text-white">Book Now</p>
         </button>

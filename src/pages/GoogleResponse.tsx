@@ -1,16 +1,17 @@
 import { useContext, useEffect } from "react";
 import { LiaThumbsUp } from "react-icons/lia";
-import { userIsLoggedIn } from "../App";
+import { userLoggedInStatusContext } from "../contexts/userLoggedInContext";
 import { useNavigate } from "react-router-dom";
 import { handleUserStatus } from "../scripts/authorization/handleUserStatus";
 
 function GoogleResponse() {
-  const loggedInStateContext = useContext(userIsLoggedIn);
+  const loggedInState = useContext(userLoggedInStatusContext);
+  const { setUserIsLoggedIn } = loggedInState;
   const navigate = useNavigate();
 
   useEffect(() => {
     handleUserStatus();
-    loggedInStateContext.setUserIsLoggedIn(true);
+    setUserIsLoggedIn(true);
 
     const navigateToHomePageTimer = setTimeout(() => {
       navigate("/");
