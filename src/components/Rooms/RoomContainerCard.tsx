@@ -2,7 +2,6 @@ import { FaPerson } from "react-icons/fa6";
 import { FaMoneyBillWave } from "react-icons/fa";
 import { RoomType } from "../../types";
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
 
 function RoomContainerCard({ room, roomId }: { room: RoomType; roomId: string }) {
   const navigate = useNavigate();

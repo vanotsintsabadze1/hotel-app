@@ -6,7 +6,6 @@ const setReservation = async (reservationData: ReservationData): Promise<void> =
   console.log(reservationData);
   const response = await axios.post(`${apiAddr}/api/Reservation`, reservationData, { withCredentials: true });
   window.open(response.data.approveLink, "_blank");
-  console.log(response.data);
 };
 
 export { setReservation };

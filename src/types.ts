@@ -54,4 +54,4 @@ type ReservationData = {
   numberOfGuests: number;
 };
 
-export type { RoomType, RoomOverviewType, userAuthorizedType, userActivityCheckType, DateContextType, ReservationDates, ReservationData };
+export type { RoomType, RoomOverviewType, userAuthorizedType, userActivityCheckType, DateContextType, ReservationDates, ReservationData, ImageBase64Type };

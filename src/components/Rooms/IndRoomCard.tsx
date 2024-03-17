@@ -1,18 +1,19 @@
 import { RoomType } from "../../types";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { DateContext } from "../../contexts/dateContext";
 import { isBefore } from "date-fns";
-import { DateTime } from "luxon";
+import { setReservation } from "../../scripts/reservation/setReservation";
+import { errorModalToggler } from "../../scripts/style-controllers/errorModalToggler";
+import { dateIsoToUtc } from "../../scripts/reservation/dateIsoToUtc";
 import ErrorModal from "../DatePicking/ErrorModal";
 import IndRoomDescription from "./IndividualRoomPageComponents/IndRoomDescription";
 import RoomSlider from "./IndividualRoomPageComponents/RoomSlider";
 import DateAdjust from "./IndividualRoomPageComponents/DateAdjust";
 import GuestAmount from "./IndividualRoomPageComponents/GuestAmount";
 import PaymentOptions from "./IndividualRoomPageComponents/PaymentOptions";
-import { setReservation } from "../../scripts/reservation/setReservation";
 
-function IndividualRoomCard({ selectedRoomDetails }: { selectedRoomDetails: RoomType }) {
-  const { description, pricePerNight, capacity, type } = selectedRoomDetails;
+function IndRoomCard({ selectedRoomDetails }: { selectedRoomDetails: RoomType }) {
+  const { id, images, description, pricePerNight, capacity, type } = selectedRoomDetails;
 
   const [guestAmount, setGuestAmount] = useState<number>(0);
   const [checkInDate, setCheckInDate] = useState<string>("");
@@ -20,49 +21,28 @@ function IndividualRoomCard({ selectedRoomDetails }: { selectedRoomDetails: Room
   const [shouldErrorBeVisible, setShouldErrorBeVisible] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string>("");
 
-  useEffect(() => {
-    console.log(checkInDate);
-  }, []);
-
   const onBookButtonClick = () => {
     if (checkInDate === "" || checkOutDate === "") {
-      setErrorMessage("Check-in or check-out date is not set!");
-      setShouldErrorBeVisible(true);
-
-      setTimeout(() => {
-        setShouldErrorBeVisible(false);
-      }, 2500);
+      errorModalToggler(setErrorMessage, "Date fields are not set!", setShouldErrorBeVisible);
       return;
     }
 
     if (isBefore(checkOutDate, checkInDate)) {
-      setErrorMessage("Check-out date cannot be before check-in date!");
-      setShouldErrorBeVisible(true);
-
-      setTimeout(() => {
-        setShouldErrorBeVisible(false);
-      }, 2500);
+      errorModalToggler(setErrorMessage, "Check-Out date can't be before Check-In date!", setShouldErrorBeVisible);
       return;
     }
 
     if (guestAmount === 0) {
-      setErrorMessage("Guest amount is not set!");
-      setShouldErrorBeVisible(true);
-
-      setTimeout(() => {
-        setShouldErrorBeVisible(false);
-      }, 2500);
+      errorModalToggler(setErrorMessage, "Guest Amount must be more than 0!", setShouldErrorBeVisible);
       return;
     }
 
     const reservationData = {
-      roomId: "id1",
-      checkInDateUtc: DateTime.fromISO(checkInDate, { zone: "local" }).toUTC().toISO(),
-      checkOutDateUtc: DateTime.fromISO(checkOutDate, { zone: "local" }).toUTC().toISO(),
+      roomId: id,
+      checkInDateUtc: dateIsoToUtc(checkInDate),
+      checkOutDateUtc: dateIsoToUtc(checkOutDate),
       numberOfGuests: guestAmount,
     };
-
-    console.log(reservationData);
 
     setReservation(reservationData);
   };
@@ -78,7 +58,7 @@ function IndividualRoomCard({ selectedRoomDetails }: { selectedRoomDetails: Room
         <div className="flex w-full items-center justify-center">
           <h1 className="font-primary-bold text-[1.7rem] uppercase tracking-wider">Room Overview</h1>
         </div>
-        <RoomSlider />
+        <RoomSlider images={images} />
         <IndRoomDescription type={type} description={description} capacity={capacity} pricePerNight={pricePerNight} />
         <DateAdjust />
         <GuestAmount setGuestAmount={setGuestAmount} guestAmount={guestAmount} capacity={capacity} />
@@ -97,4 +77,4 @@ function IndividualRoomCard({ selectedRoomDetails }: { selectedRoomDetails: Room
   );
 }
 
-export default IndividualRoomCard;
+export default IndRoomCard;
