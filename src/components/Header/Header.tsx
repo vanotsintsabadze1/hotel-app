@@ -20,20 +20,13 @@ function Header({ headerBackgroundColor }: { headerBackgroundColor: string }) {
   }, [location.pathname]);
 
   return (
-    <header
-      className={`bg-${headerBackgroundColor} absolute top-0 z-[4] flex h-[8rem] w-full justify-center p-[0_1rem] sm:h-[9rem] md:p-[0_3rem]`}
-    >
+    <header className={`bg-${headerBackgroundColor} absolute top-0 z-[4] flex h-[8rem] w-full justify-center p-[0_1rem] sm:h-[9rem] md:p-[0_3rem]`}>
       <div className="flex w-full justify-between md:w-full lg:w-full xl:w-[120rem]">
         <HeaderBanner />
-        <button
-          className="lg absolute right-[2rem] top-[1.5rem] hidden sm:block md:block"
-          onClick={handleSideBarVisibility}
-        >
-          <CgMenuMotion className="md-lg:block hidden h-[3.5rem] w-[3.5rem] text-white sm:block lg:hidden" />
+        <button className="lg absolute right-[2rem] top-[1.5rem] hidden sm:block md:block" onClick={handleSideBarVisibility}>
+          <CgMenuMotion className="xs:block hidden h-[3.5rem] w-[3.5rem] text-white sm:block lg:hidden" />
         </button>
-        <AnimatePresence>
-          {sideBarVisibility && <SideBar toggleBar={handleSideBarVisibility} />}
-        </AnimatePresence>
+        <AnimatePresence>{sideBarVisibility && <SideBar toggleBar={handleSideBarVisibility} />}</AnimatePresence>
         <Navigation />
       </div>
     </header>

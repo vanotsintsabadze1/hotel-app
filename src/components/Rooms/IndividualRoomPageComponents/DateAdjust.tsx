@@ -27,13 +27,13 @@ function DateAdjust() {
   }, [checkOutDate]);
 
   return (
-    <div className="relative mb-[1rem] mt-[1rem] flex w-full items-center justify-center gap-[3rem] p-[1rem_0_2rem_0]">
+    <div className="relative mt-[1rem] flex w-full items-center justify-center gap-[3rem] p-[1rem_0_2rem_0] lg:justify-start">
       <div className="flex flex-col items-center gap-[0.5rem]">
         <p>
           <b>Check In</b>
         </p>
         <input
-          className="h-[5rem] w-[9rem] rounded-lg bg-secondary text-center text-[1.1rem] font-bold text-white"
+          className="h-[5.5rem] w-[10rem] rounded-lg bg-secondary text-center text-[1.1rem] font-bold text-white"
           value={checkInValue === "" ? "Not Set" : checkInValue}
           onClick={() => setCheckInDatePickerVisibility(true)}
           readOnly
@@ -46,7 +46,7 @@ function DateAdjust() {
           <b>Check Out</b>
         </p>
         <input
-          className="h-[5rem] w-[9rem] rounded-lg bg-secondary text-center text-[1.1rem] font-bold text-white"
+          className="h-[5.5rem] w-[10rem] rounded-lg bg-secondary text-center text-[1.1rem] font-bold text-white"
           value={checkOutValue === "" ? "Not Set" : checkOutValue}
           readOnly
           onClick={() => setCheckOutDatePickerVisibility(true)}

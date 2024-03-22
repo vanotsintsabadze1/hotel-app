@@ -8,7 +8,9 @@ import "react-datepicker/dist/react-datepicker.css";
 
 function CheckInDatePicker({ setVisibility }: { setVisibility: React.Dispatch<React.SetStateAction<boolean>> }) {
   const dateValueContext = useContext(DateContext);
-  const [checkInDate, setCheckInDate] = useState<Date | null>(new Date());
+  let currentDate = new Date();
+  let minDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate() + 1);
+  const [checkInDate, setCheckInDate] = useState<Date | null>(minDate);
   const [formattedCheckInDate, setFormattedCheckInDate] = useState<string>("");
   const {
     setReservationDate: { setCheckInDate: checkInDateSetter },
@@ -19,18 +21,10 @@ function CheckInDatePicker({ setVisibility }: { setVisibility: React.Dispatch<Re
     setFormattedCheckInDate(formattedDate);
   }, [checkInDate]);
 
-  useEffect(() => {
-    if (formattedCheckInDate !== "") {
-      console.log(formattedCheckInDate);
-    }
-  }, [formattedCheckInDate]);
-
   const onCheckInSubmitButtonClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
     checkInDateSetter(formattedCheckInDate);
-    console.log(formattedCheckInDate);
     setVisibility(false);
-    console.log("clicked");
   };
 
   return (
@@ -41,7 +35,7 @@ function CheckInDatePicker({ setVisibility }: { setVisibility: React.Dispatch<Re
           className="w-[15rem] rounded-[.5rem] border-2  border-primary p-[.5rem] text-center text-[1.8rem] font-bold tracking-wide"
           selected={checkInDate}
           onKeyDown={(e) => e.preventDefault()}
-          minDate={new Date()}
+          minDate={minDate}
           onChange={(date) => setCheckInDate(date)}
         />
         <button className="mt-[1rem] h-[4rem] w-[15rem] rounded-[.5rem] bg-primary text-[1.5rem] font-bold uppercase" onClick={onCheckInSubmitButtonClick}>

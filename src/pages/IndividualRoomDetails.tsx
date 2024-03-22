@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getIndividualRoom } from "../scripts/fetching/getIndividualRoom";
 import LoadingScreen from "../components/loading-screen/LoadingScreen";
-import IndividualRoomCard from "../components/Rooms/IndRoomCard";
+import IndRoomCard from "../components/Rooms/IndRoomCard";
 
 function IndividualRoomDetails() {
   const urlParams = useParams();
@@ -19,10 +19,10 @@ function IndividualRoomDetails() {
   }, []);
 
   return (
-    <section className="flex w-full items-center justify-center p-[0_2rem]">
+    <section className="mb-[5rem] mt-[13rem] flex w-full items-center justify-center p-[0_2.5rem]">
       {room.length !== 0 ? (
         room.map((room, index) => {
-          return <IndividualRoomCard selectedRoomDetails={room} key={index} />;
+          return <IndRoomCard selectedRoomDetails={room} key={index} />;
         })
       ) : (
         <LoadingScreen />

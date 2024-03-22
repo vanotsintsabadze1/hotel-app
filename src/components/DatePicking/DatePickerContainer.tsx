@@ -1,6 +1,4 @@
 import { motion } from "framer-motion";
-import { dateContext } from "../../contexts/dateContext";
-import { useContext } from "react";
 
 const divAnimation = {
   hidden: { opacity: 0 },
@@ -27,7 +25,7 @@ function DatePickerContainer({ children }: { children: React.ReactNode }) {
         animate="visible"
         transition={{ duration: 1, type: "spring" }}
         variants={childDivAnimation}
-        className="z-[4] flex h-[25rem] w-full items-center justify-center rounded-[1rem] bg-white shadow-individual-room-card"
+        className="z-[4] flex h-[25rem] w-full items-center justify-center rounded-[1rem] bg-white shadow-individual-room-card sm:w-[40rem] md:w-[40rem] lg:w-[40rem]"
       >
         {children}
       </motion.div>
