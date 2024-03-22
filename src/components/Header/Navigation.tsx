@@ -19,7 +19,7 @@ function Navigation() {
   };
 
   return (
-    <div className="ease relative hidden h-full w-[45rem] items-center justify-evenly gap-[2rem] text-[1.5rem] font-normal text-white lg-minus:flex">
+    <div className="ease relative hidden h-full w-[45rem] items-center justify-evenly gap-[2rem] text-[1.5rem] font-normal text-white md:flex lg:flex">
       <Link to="/" className="ease drop-shadow-navigation-text duration-200 hover:font-semibold hover:underline">
         Home
       </Link>

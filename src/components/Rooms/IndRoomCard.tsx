@@ -54,24 +54,30 @@ function IndRoomCard({ selectedRoomDetails }: { selectedRoomDetails: RoomType })
         setReservationDate: { setCheckInDate: setCheckInDate, setCheckOutDate: setCheckOutDate },
       }}
     >
-      <div className="relative mb-[5rem] mt-[12rem] flex min-h-[50rem] w-full flex-col rounded-[2rem] p-[2rem_2rem] shadow-individual-room-card lg:w-auto">
-        <div className="flex w-full items-center justify-center">
-          <h1 className="font-primary-bold text-[1.7rem] uppercase tracking-wider">Room Overview</h1>
+      <div className="min-h-[60rem] w-full rounded-[1rem]  pb-[3rem]  shadow-individual-room-card xl:w-[150rem]">
+        <div className="flex items-center justify-center p-[1rem]">
+          <h1 className="mt-[2rem] font-primary-bold text-[1.7rem] uppercase tracking-wider">Room Overview</h1>
         </div>
-        <RoomSlider images={images} />
-        <IndRoomDescription type={type} description={description} capacity={capacity} pricePerNight={pricePerNight} />
-        <DateAdjust />
-        <GuestAmount setGuestAmount={setGuestAmount} guestAmount={guestAmount} capacity={capacity} />
-        <PaymentOptions />
-        <div className="flex items-center justify-center p-[4rem_0rem_2rem_]">
-          <button
-            onClick={onBookButtonClick}
-            className="drop-shadow- h-[4rem] w-[15rem] rounded-[1rem] bg-primary font-primary-bold text-[1.3rem] uppercase tracking-wider text-black shadow-individual-room-card"
-          >
-            Book
-          </button>
+        <div className="flex w-full flex-col items-center lg:flex-grow lg:flex-row">
+          <section className="flex w-full items-center justify-center p-[1rem_0_.5rem_0] lg:w-1/2 lg:p-[2rem]">
+            <RoomSlider images={images} />
+          </section>
+          <section className="flex w-full flex-col items-center p-[0_2rem] lg:w-1/2 lg:p-0">
+            <IndRoomDescription type={type} description={description} capacity={capacity} pricePerNight={pricePerNight} />
+            <DateAdjust />
+            <GuestAmount setGuestAmount={setGuestAmount} guestAmount={guestAmount} capacity={capacity} />
+            <PaymentOptions />
+            <div className="mb-[2rem] mt-[2rem] flex items-center justify-center p-[4rem_0rem_2rem_] lg:mb-[2rem] lg:mt-0">
+              <button
+                onClick={onBookButtonClick}
+                className="drop-shadow- h-[4.5rem] w-[17rem] rounded-[.5rem] bg-primary font-primary-bold text-[1.3rem] uppercase tracking-wider text-slate-800 shadow-2xl"
+              >
+                Book
+              </button>
+            </div>
+            {shouldErrorBeVisible && <ErrorModal errorMessage={errorMessage} />}
+          </section>
         </div>
-        {shouldErrorBeVisible && <ErrorModal errorMessage={errorMessage} />}
       </div>
     </DateContext.Provider>
   );

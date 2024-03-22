@@ -19,7 +19,7 @@ function IndividualRoomDetails() {
   }, []);
 
   return (
-    <section className="flex w-full items-center justify-center p-[0_2rem]">
+    <section className="mb-[5rem] mt-[13rem] flex w-full items-center justify-center p-[0_2.5rem]">
       {room.length !== 0 ? (
         room.map((room, index) => {
           return <IndRoomCard selectedRoomDetails={room} key={index} />;

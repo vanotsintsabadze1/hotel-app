@@ -7,6 +7,7 @@ import { checkUserStatus } from "./scripts/authorization/checkUserStatus.ts";
 import Header from "./components/Header/Header.tsx";
 import Footer from "./components/Footer/Footer.tsx";
 import LoadingScreen from "./components/loading-screen/LoadingScreen.tsx";
+import ReservationSuccess from "./pages/ReservationSuccess.tsx";
 const Home = lazy(() => import("./pages/Home.tsx"));
 const Rooms = lazy(() => import("./pages/Rooms.tsx"));
 const UserLogin = lazy(() => import("./pages/UserLogin.tsx"));
@@ -56,6 +57,7 @@ function App() {
                 <Route index element={<RoomsPageIntroduction />} />
                 <Route path=":roomType" element={<IndividualRoomDetails />} />
               </Route>
+              <Route path="/ReservationSuccess" element={<ReservationSuccess />} />
               <Route path="login" element={<UserLogin />} />
             </Route>
             <Route path="/GoogleResponse" element={<GoogleResponse />} />
