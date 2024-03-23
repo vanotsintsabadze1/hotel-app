@@ -54,9 +54,9 @@ function IndRoomCard({ selectedRoomDetails }: { selectedRoomDetails: RoomType })
         setReservationDate: { setCheckInDate: setCheckInDate, setCheckOutDate: setCheckOutDate },
       }}
     >
-      <div className="min-h-[60rem] w-full rounded-[1rem]  pb-[3rem]  shadow-individual-room-card xl:w-[150rem]">
+      <div className="shadow-soft min-h-[60rem] w-full  rounded-[1rem]  pb-[3rem] xl:w-[150rem]">
         <div className="flex items-center justify-center p-[1rem]">
-          <h1 className="mt-[2rem] font-primary-bold text-[1.7rem] uppercase tracking-wider">Room Overview</h1>
+          <h1 className="mt-[2rem] text-[1.7rem] font-bold uppercase tracking-wider">Room Overview</h1>
         </div>
         <div className="flex w-full flex-col items-center lg:flex-grow lg:flex-row">
           <section className="flex w-full items-center justify-center p-[1rem_0_.5rem_0] lg:w-1/2 lg:p-[2rem]">
@@ -68,10 +68,7 @@ function IndRoomCard({ selectedRoomDetails }: { selectedRoomDetails: RoomType })
             <GuestAmount setGuestAmount={setGuestAmount} guestAmount={guestAmount} capacity={capacity} />
             <PaymentOptions />
             <div className="mb-[2rem] mt-[2rem] flex items-center justify-center p-[4rem_0rem_2rem_] lg:mb-[2rem] lg:mt-0">
-              <button
-                onClick={onBookButtonClick}
-                className="drop-shadow- h-[4.5rem] w-[17rem] rounded-[.5rem] bg-primary font-primary-bold text-[1.3rem] uppercase tracking-wider text-slate-800 shadow-2xl"
-              >
+              <button onClick={onBookButtonClick} className="drop-shadow- h-[4.5rem] w-[17rem] rounded-[.5rem] bg-primary text-[1.3rem] font-bold uppercase tracking-wider text-slate-800 shadow-2xl">
                 Book
               </button>
             </div>
