@@ -6,11 +6,11 @@ import { setReservation } from "../../scripts/reservation/setReservation";
 import { errorModalToggler } from "../../scripts/style-controllers/errorModalToggler";
 import { dateIsoToUtc } from "../../scripts/reservation/dateIsoToUtc";
 import ErrorModal from "../DatePicking/ErrorModal";
-import IndRoomDescription from "./IndividualRoomPageComponents/IndRoomDescription";
-import RoomSlider from "./IndividualRoomPageComponents/RoomSlider";
-import DateAdjust from "./IndividualRoomPageComponents/DateAdjust";
-import GuestAmount from "./IndividualRoomPageComponents/GuestAmount";
-import PaymentOptions from "./IndividualRoomPageComponents/PaymentOptions";
+import IndRoomDescription from "./Individual-Room-Booking-Components/IndRoomDescription";
+import RoomSlider from "./Individual-Room-Booking-Components/RoomSlider";
+import DateAdjust from "./Individual-Room-Booking-Components/DateAdjust";
+import GuestAmount from "./Individual-Room-Booking-Components/GuestAmount";
+import PaymentOptions from "./Individual-Room-Booking-Components/PaymentOptions";
 
 function IndRoomCard({ selectedRoomDetails }: { selectedRoomDetails: RoomType }) {
   const { id, images, description, pricePerNight, capacity, type } = selectedRoomDetails;
@@ -54,13 +54,13 @@ function IndRoomCard({ selectedRoomDetails }: { selectedRoomDetails: RoomType })
         setReservationDate: { setCheckInDate: setCheckInDate, setCheckOutDate: setCheckOutDate },
       }}
     >
-      <div className="shadow-soft min-h-[60rem] w-full  rounded-[1rem]  pb-[3rem] xl:w-[150rem]">
+      <div className="min-h-[60rem] w-full rounded-[1rem]  pb-[3rem]  shadow-soft xl:w-[150rem]">
         <div className="flex items-center justify-center p-[1rem]">
           <h1 className="mt-[2rem] text-[1.7rem] font-bold uppercase tracking-wider">Room Overview</h1>
         </div>
         <div className="flex w-full flex-col items-center lg:flex-grow lg:flex-row">
           <section className="flex w-full items-center justify-center p-[1rem_0_.5rem_0] lg:w-1/2 lg:p-[2rem]">
-            <RoomSlider images={images} />
+            <RoomSlider images={images} sliderType="indRoom" />
           </section>
           <section className="flex w-full flex-col items-center p-[0_2rem] lg:w-1/2 lg:p-0">
             <IndRoomDescription type={type} description={description} capacity={capacity} pricePerNight={pricePerNight} />

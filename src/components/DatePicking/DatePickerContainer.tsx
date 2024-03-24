@@ -17,7 +17,7 @@ function DatePickerContainer({ children }: { children: React.ReactNode }) {
       animate="visible"
       transition={{ duration: 0.5, type: "spring" }}
       variants={divAnimation}
-      className="fixed left-1/2 top-1/2 flex h-[100dvh]  w-[100dvw] translate-x-[-50%] translate-y-[-50%] items-center justify-center p-[2rem] shadow-soft"
+      className="fixed left-1/2 top-1/2 z-[4] flex h-[100dvh] w-[100dvw] translate-x-[-50%] translate-y-[-50%] items-center justify-center p-[2rem] shadow-soft"
     >
       <div className="absolute top-0 h-full w-full bg-black opacity-50" />
       <motion.div
