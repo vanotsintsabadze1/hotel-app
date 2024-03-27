@@ -6,15 +6,16 @@ import { UserLoggedInStatusContext } from "./contexts/userLoggedInContext.ts";
 import { checkUserStatus } from "./scripts/authorization/checkUserStatus.ts";
 import Header from "./components/Header/Header.tsx";
 import Footer from "./components/Footer/Footer.tsx";
-import LoadingScreen from "./components/Loading-Screen/LoadingScreen.tsx";
-import ReservationSuccess from "./pages/ReservationSuccess.tsx";
 const Home = lazy(() => import("./pages/Home.tsx"));
 const Rooms = lazy(() => import("./pages/Rooms.tsx"));
+import LoadingScreen from "./components/Loading-Screen/LoadingScreen.tsx";
 const UserLogin = lazy(() => import("./pages/UserLogin.tsx"));
 const NoPageFound = lazy(() => import("./pages/NoPageFound.tsx"));
 const GoogleResponse = lazy(() => import("./pages/GoogleResponse.tsx"));
 const IndividualRoomDetails = lazy(() => import("./pages/IndividualRoomDetails.tsx"));
 const RoomsPageIntroduction = lazy(() => import("./components/Rooms/RoomsPageIntroduction.tsx"));
+const ReservationSuccess = lazy(() => import("./pages/ReservationSuccess.tsx"));
+const ReservationCancelled = lazy(() => import("./pages/ReservationCancelled.tsx"));
 
 function App() {
   const [headerBackground, setHeaderBackground] = useState("transparent");
@@ -58,6 +59,7 @@ function App() {
                 <Route path=":roomType" element={<IndividualRoomDetails />} />
               </Route>
               <Route path="/ReservationSuccess" element={<ReservationSuccess />} />
+              <Route path="/ReservationCancelled" element={<ReservationCancelled />} />
               <Route path="login" element={<UserLogin />} />
             </Route>
             <Route path="/GoogleResponse" element={<GoogleResponse />} />
