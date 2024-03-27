@@ -19,22 +19,22 @@ function Navigation() {
   };
 
   return (
-    <div className="ease relative hidden h-full w-[45rem] items-center justify-evenly gap-[2rem] text-[1.5rem] font-normal text-white md:flex lg:flex">
-      <Link to="/" className="ease drop-shadow-navigation-text duration-200 hover:font-semibold hover:underline">
+    <div className="ease relative hidden h-full w-[47rem] items-center justify-evenly gap-[2rem] text-[1.5rem] font-normal text-white md:flex lg:flex">
+      <Link to="/" className="ease drop-shadow-text-medium duration-200 hover:font-bold hover:underline">
         Home
       </Link>
-      <Link to="/" className="ease drop-shadow-navigation-text duration-200 hover:font-semibold hover:underline">
+      <Link to="/" className="ease drop-shadow-text-medium duration-200 hover:font-bold hover:underline">
         Facilities
       </Link>
-      <Link to="/rooms" className="ease drop-shadow-navigation-text duration-200 hover:font-semibold hover:underline">
+      <Link to="/rooms" className="ease drop-shadow-text-medium duration-200 hover:font-bold hover:underline">
         Rooms
       </Link>
-      <Link to="/" className="ease drop-shadow-navigation-text duration-200 hover:font-semibold hover:underline">
+      <Link to="/" className="ease drop-shadow-text-medium duration-200 hover:font-bold hover:underline">
         Contact-us
       </Link>
       {!isUserLoggedIn ? (
         <button className="flex h-[3.5rem] min-w-[12rem] items-center justify-center gap-[0.6rem] rounded-[0.5rem] bg-white" onClick={enableLoginCard}>
-          <p className="font-primary-bold text-[1.2rem] font-[700] uppercase text-black">Log In</p>
+          <p className="text-[1.2rem] font-bold uppercase text-black">Log In</p>
           <LuUserCircle className="h-[2rem] w-[2rem] text-black" />
         </button>
       ) : (

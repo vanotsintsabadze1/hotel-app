@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getIndividualRoom } from "../scripts/fetching/getIndividualRoom";
-import LoadingScreen from "../components/loading-screen/LoadingScreen";
+import LoadingScreen from "../components/Loading-Screen/LoadingScreen";
 import IndRoomCard from "../components/Rooms/IndRoomCard";
 
 function IndividualRoomDetails() {

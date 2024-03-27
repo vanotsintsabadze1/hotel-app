@@ -54,4 +54,16 @@ type ReservationData = {
   numberOfGuests: number;
 };
 
-export type { RoomType, RoomOverviewType, userAuthorizedType, userActivityCheckType, DateContextType, ReservationDates, ReservationData, ImageBase64Type };
+type ReservedRoomDetails = {
+  checkInDateUtc: string;
+  checkOutDateUtc: string;
+  numberOfGuests: number;
+  room: {
+    images: ImageBase64Type[];
+    type: string;
+    description: string;
+  };
+  status: number;
+};
+
+export type { RoomType, RoomOverviewType, userAuthorizedType, userActivityCheckType, DateContextType, ReservationDates, ReservationData, ImageBase64Type, ReservedRoomDetails };

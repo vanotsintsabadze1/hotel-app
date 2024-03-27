@@ -12,7 +12,7 @@ function ErrorModal({ errorMessage }: { errorMessage: string }) {
       initial="hidden"
       animate="visible"
       variants={divAnimation}
-      className="absolute left-0 right-0 top-[10rem] mx-auto  flex h-[6rem] w-[35rem] items-center justify-center gap-[.5rem] rounded-[.5rem] bg-white shadow-individual-room-card"
+      className="shadow-soft absolute left-0 right-0 top-[10rem]  mx-auto flex h-[6rem] w-[35rem] items-center justify-center gap-[.5rem] rounded-[.5rem] bg-white"
     >
       <TbAlertTriangle className="h-[2.7rem] w-[2.7rem] text-red-500" />
       <p className="text-[1.2rem] font-bold">{errorMessage}</p>

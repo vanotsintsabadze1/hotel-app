@@ -29,7 +29,7 @@ function ReservationSuccess() {
   const formattedCheckInDate = checkInDateUtc ? format(new Date(checkInDateUtc), "dd MMM, yyyy") : "";
   const formattedCheckOutDate = checkOutDateUtc ? format(new Date(checkOutDateUtc), "dd MMM, yyyy") : "";
 
-  if (status === 1) {
+  if (status === 3) {
     return (
       <main className="mb-[5rem] mt-[13rem] flex w-full items-center justify-center p-[0_2.5rem]">
         <div className="min-h-[40rem] w-full rounded-[1rem] pb-[2rem] shadow-soft xl:w-[150rem]">
@@ -47,7 +47,7 @@ function ReservationSuccess() {
                   formattedCheckInDate={formattedCheckInDate}
                   formattedCheckOutDate={formattedCheckOutDate}
                   numberOfGuests={numberOfGuests}
-                  status={true}
+                  status={false}
                 />
               </div>
               <div className="mt-[2rem] flex items-center justify-center p-[4rem_0rem_2rem_] lg:mb-[2rem] lg:mt-0">
