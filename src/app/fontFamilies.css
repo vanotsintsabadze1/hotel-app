@@ -2,39 +2,39 @@
 
 @font-face {
   font-family: "Montserrat";
-  src: url("/public/font-families/Montserrat/Montserrat-Regular.ttf"),
-    url("/public/font-families/Montserrat/Montserrat-Regular.woff"),
-    url("/public/font-families/Montserrat/Montserrat-Regular.woff2");
+  src: url("/font-families/Montserrat/Montserrat-Regular.ttf"),
+    url("/font-families/Montserrat/Montserrat-Regular.woff"),
+    url("/font-families/Montserrat/Montserrat-Regular.woff2");
   font-weight: 400;
 }
 
 @font-face {
   font-family: "Montserrat";
-  src: url("/public/font-families/Montserrat/Montserrat-Medium.ttf"),
-    url("/public/font-families/Montserrat/Montserrat-Medium.woff"),
-    url("/public/font-families/Montserrat/Montserrat-Medium.woff2");
+  src: url("/font-families/Montserrat/Montserrat-Medium.ttf"),
+    url("/font-families/Montserrat/Montserrat-Medium.woff"),
+    url("/font-families/Montserrat/Montserrat-Medium.woff2");
   font-weight: 500;
 }
 @font-face {
   font-family: "Montserrat";
-  src: url("/public/font-families/Montserrat/Montserrat-Bold.ttf"),
-    url("/public/font-families/Montserrat/Montserrat-Bold.woff"),
-    url("/public/font-families/Montserrat/Montserrat-Bold.woff2");
+  src: url("/font-families/Montserrat/Montserrat-Bold.ttf"),
+    url("/font-families/Montserrat/Montserrat-Bold.woff"),
+    url("/font-families/Montserrat/Montserrat-Bold.woff2");
   font-weight: 700;
 }
 @font-face {
   font-family: "Montserrat";
-  src: url("/public/font-families/Montserrat/Montserrat-Light.ttf"),
-    url("/public/font-families/Montserrat/Montserrat-Light.woff"),
-    url("/public/font-families/Montserrat/Montserrat-Light.woff2");
+  src: url("/font-families/Montserrat/Montserrat-Light.ttf"),
+    url("/font-families/Montserrat/Montserrat-Light.woff"),
+    url("/font-families/Montserrat/Montserrat-Light.woff2");
   font-weight: 300;
 }
 
 @font-face {
   font-family: "Montserrat";
-  src: url("/public/font-families/Montserrat/Montserrat-SemiBold.ttf"),
-    url("/public/font-families/Montserrat/Montserrat-SemiBold.woff"),
-    url("/public/font-families/Montserrat/Montserrat-SemiBold.woff2");
+  src: url("/font-families/Montserrat/Montserrat-SemiBold.ttf"),
+    url("/font-families/Montserrat/Montserrat-SemiBold.woff"),
+    url("/font-families/Montserrat/Montserrat-SemiBold.woff2");
   font-weight: 600;
 }
 
@@ -42,32 +42,32 @@
 
 @font-face {
   font-family: "IBM Plex Serif";
-  src: url("/public/font-families/IBM-Plex-Serif/IBMPlexSerif-Regular.ttf"),
-    url("/public/font-families/IBM-Plex-Serif/IBMPlexSerif-Regular.woff"),
-    url("/public/font-families/IBM-Plex-Serif/IBMPlexSerif-Regular.woff2");
+  src: url("/font-families/IBM-Plex-Serif/IBMPlexSerif-Regular.ttf"),
+    url("/font-families/IBM-Plex-Serif/IBMPlexSerif-Regular.woff"),
+    url("/font-families/IBM-Plex-Serif/IBMPlexSerif-Regular.woff2");
   font-weight: 400;
 }
 
 @font-face {
   font-family: "IBM Plex Serif";
-  src: url("/public/font-familiesIBM-Plex-Serif/IBMPlexSerif-Medium.ttf"),
-    url("/public/font-families/IBM-Plex-Serif/IBMPlexSerif-Medium.woff"),
-    url("/public/font-families/IBM-Plex-Serif/IBMPlexSerif-Medium.woff2");
+  src: url("/font-families/IBM-Plex-Serif/IBMPlexSerif-Medium.ttf"),
+    url("/font-families/IBM-Plex-Serif/IBMPlexSerif-Medium.woff"),
+    url("/font-families/IBM-Plex-Serif/IBMPlexSerif-Medium.woff2");
   font-weight: 500;
 }
 
 @font-face {
   font-family: "IBM Plex Serif";
-  src: url("/public/font-familiesIBM-Plex-Serif/IBMPlexSerif-Bold.ttf"),
-    url("/public/font-families/IBM-Plex-Serif/IBMPlexSerif-Bold.woff"),
-    url("/public/font-families/IBM-Plex-Serif/IBMPlexSerif-Bold.woff2");
+  src: url("/font-families/IBM-Plex-Serif/IBMPlexSerif-Bold.ttf"),
+    url("/font-families/IBM-Plex-Serif/IBMPlexSerif-Bold.woff"),
+    url("/font-families/IBM-Plex-Serif/IBMPlexSerif-Bold.woff2");
   font-weight: 700;
 }
 
 @font-face {
   font-family: "IBM Plex Serif";
-  src: url("/public/font-families/IBM-Plex-Serif/IBMPlexSerif-SemiBold.ttf"),
-    url("/public/font-families/IBM-Plex-Serif/IBMPlexSerif-SemiBold.woff"),
-    url("/public/font-families/IBM-Plex-Serif/IBMPlexSerif-SemiBold.woff2");
+  src: url("/font-families/IBM-Plex-Serif/IBMPlexSerif-SemiBold.ttf"),
+    url("/font-families/IBM-Plex-Serif/IBMPlexSerif-SemiBold.woff"),
+    url("/font-families/IBM-Plex-Serif/IBMPlexSerif-SemiBold.woff2");
   font-weight: 600;
 }
