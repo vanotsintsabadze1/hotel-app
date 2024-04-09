@@ -1,4 +1,4 @@
-interface image {
+export interface imageBase64 {
   imageBase64: string;
 }
 
@@ -9,5 +9,5 @@ export interface room {
   capacity: number;
   pricePerNight: number;
   pricePerNightCurrency: 1;
-  images: image[];
+  images: imageBase64[];
 }

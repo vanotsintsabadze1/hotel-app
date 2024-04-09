@@ -18,6 +18,7 @@ const config: Config = {
         secondary: "#14274A",
       },
       dropShadow: {
+        "text-xs": ".0rem .1rem .1rem rgba(0,0,0,0.4)",
         "text-soft": ".1rem .1rem .3rem rgba(0,0,0,0.5)",
         "text-md": ".1rem .1rem .5rem rgba(0,0,0,0.7)",
       },

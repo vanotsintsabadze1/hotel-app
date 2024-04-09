@@ -1,23 +1,24 @@
-import CardContainer from "@/components/Rooms/CardContainer";
+import Container from "@/components/Rooms/Container";
 import Introduction from "@/components/Rooms/Introduction";
 import { room } from "@/interfaces/rooms";
 
-async function getRooms(): Promise<room[]> {
-  const apiAddress = process.env.API_ADDRESS;
+const apiAddress = process.env.API_ADDRESS;
+
+async function getRooms() {
   const response = await fetch(`${apiAddress}/api/Room`, {
     method: "GET",
-    credentials: "include",
+    cache: "no-store",
   });
   return response.json();
 }
 
 async function Rooms() {
-  const rooms = await getRooms();
+  const room: room[] = await getRooms();
 
   return (
     <>
       <Introduction />
-      <CardContainer />
+      <Container rooms={room} />
     </>
   );
 }
